@@ -1,0 +1,30 @@
+on:
+  push:
+    branches:
+    - main
+    - dev
+jobs:
+  build:
+    # steps for the build job go here
+  deploy:
+    # steps for the deploy job go here
+    if: github.ref == 'refs/heads/main'
+    
+branch_protection:
+  branches:
+    - main
+  enforce_admins: true
+  required_pull_request_reviews:
+    dismissal_restrictions:
+      users:
+        - YOUR_USERNAME
+      teams:
+        - YOUR_TEAM_NAME
+    dismissal_users:
+      - YOUR_USERNAME
+    required_approving_review_count: 1
+    
+   secrets:
+   MYSECRET: your_secret_value
+ 
+
